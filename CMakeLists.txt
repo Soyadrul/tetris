@@ -30,8 +30,10 @@ FetchContent_MakeAvailable(raylib)
 file(GLOB_RECURSE SOURCES
     "${PROJECT_SOURCE_DIR}/src/main.cpp"
     "${PROJECT_SOURCE_DIR}/src/draw.cpp"
+    "${PROJECT_SOURCE_DIR}/src/board.cpp"
 
     "${PROJECT_SOURCE_DIR}/include/draw.h"
+    "${PROJECT_SOURCE_DIR}/src/board.hpp"
 )
 
 # Executable

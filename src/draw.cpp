@@ -1,4 +1,5 @@
 #include <string>
+#include <memory>
 #include "raylib.h"
 #include "../include/draw.h"
 
@@ -74,22 +75,16 @@ void draw_menu(const int& screen_width, const int& screen_height, bool& is_playi
     }
 }
 
-void draw_game(const int& screen_width, const int& screen_height) {
+void draw_game(const int& screen_width, const int& screen_height, std::shared_ptr<Board> board) {
     ClearBackground(RAYWHITE);
 
-    std::string text_inside_button = "Game Mode";
-    constexpr int font_size = 20;
-    const int text_width = MeasureText(text_inside_button.c_str(), font_size);
-    const int text_height = font_size;
-    
-    const int text_x = (screen_width - text_width) / 2;
-    const int text_y = (screen_height - text_height) / 2;
-    DrawText(text_inside_button.c_str(), text_x, text_y, font_size, LIGHTGRAY);
+    board->draw_background();
+    board->draw_squares();
 }
 
-void draw(const int& screen_width, const int& screen_height, bool& is_playing) {
+void draw(const int& screen_width, const int& screen_height, bool& is_playing, std::shared_ptr<Board> board) {
     if(is_playing) {
-        draw_game(screen_width, screen_height);
+        draw_game(screen_width, screen_height, board);
     }
     else{
         draw_menu(screen_width, screen_height, is_playing);
