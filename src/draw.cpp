@@ -75,14 +75,14 @@ void draw_menu(const int& screen_width, const int& screen_height, bool& is_playi
     }
 }
 
-void draw_game(const int& screen_width, const int& screen_height, std::shared_ptr<Board> board) {
+void draw_game(const int& screen_width, const int& screen_height, const std::unique_ptr<Board>& board) {
     ClearBackground(RAYWHITE);
 
     board->draw_background();
-    board->draw_squares();
+    board->draw_board_squares();
 }
 
-void draw(const int& screen_width, const int& screen_height, bool& is_playing, std::shared_ptr<Board> board) {
+void draw(const int& screen_width, const int& screen_height, bool& is_playing, const std::unique_ptr<Board>& board) {
     if(is_playing) {
         draw_game(screen_width, screen_height, board);
     }

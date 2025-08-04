@@ -1,10 +1,13 @@
+#include <memory>
+#include "piece/square.hpp"
+
+#ifndef BOARD_HPP
+#define BOARD_HPP
+
 class Board{
 private:
-    const int segments = 100;
-
     // Square parameters
-    int square_edge;
-    float square_roundness;
+    std::shared_ptr<Square> square;
     int two_squares_dinstance;
     Color square_color;
     const int squares_per_row = 10;
@@ -13,29 +16,32 @@ private:
     int square_y;
 
     // Board parameters
-    int game_border;
-    float game_roundness;
+    int board_border;
+    float board_roundness;
+    int segments;
     Color background_color;
-    int game_width;
-    int game_height;
-    const int game_x = 0;
-    const int game_y = 0;
+    int board_width;
+    int board_height;
+    const int board_x = 0;
+    const int board_y = 0;
 
 public:
     Board(
-        int _square_edge = 22,
-        float _square_roundness = 0.5,
-        int _two_squares_dinstance = 5,
-        Color _square_color = BLACK,
-        float _game_roundness = 0.05,
-        Color _background_color = GRAY
+        std::shared_ptr<Square> _square,
+        int _two_squares_dinstance,
+        Color _square_color,
+        float _board_roundness,
+        Color _background_color
     );
 
-    int get_game_width() const;
+    int get_board_width() const;
 
-    int get_game_height() const;
+    int get_board_height() const;
 
     void draw_background();
-    void draw_squares();
+
+    void draw_board_squares();
 
 };
+
+#endif // BOARD_HPP

@@ -31,9 +31,11 @@ file(GLOB_RECURSE SOURCES
     "${PROJECT_SOURCE_DIR}/src/main.cpp"
     "${PROJECT_SOURCE_DIR}/src/draw.cpp"
     "${PROJECT_SOURCE_DIR}/src/board.cpp"
+    "${PROJECT_SOURCE_DIR}/src/piece/square.cpp"
 
     "${PROJECT_SOURCE_DIR}/include/draw.h"
     "${PROJECT_SOURCE_DIR}/src/board.hpp"
+    "${PROJECT_SOURCE_DIR}/include/piece/square.hpp"
 )
 
 # Executable
